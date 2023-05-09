@@ -1,7 +1,7 @@
 pipeline {
-    agent {
-	label "jenkins-node"
-
+	agent {
+        label "jenkins-node"
+	}
     stages {
         stage('Checkout') {
             steps {
@@ -18,6 +18,5 @@ pipeline {
                 deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', path: '', url: 'http://192.168.56.12:8080')], contextPath: null, war: 'target/hello-world.war'
             }
         }
-    }
-  }
-} 
+    }  
+}
